@@ -1,5 +1,8 @@
 import Dom from "../controllers/Dom";
-let _state = {};
+let _state = {
+  title: "Project",
+  scrollHeight: 4 * window.innerHeight,
+};
 let _dom = null;
 
 const template = () => `
@@ -23,6 +26,18 @@ const Projects = {
     }
 
     Dom.print(_dom, template());
+    Projects._afterRender();
+  },
+  set state(obj) {
+    _state = {
+      ...obj,
+    };
+  },
+  get state() {
+    return _state;
+  },
+  _afterRender() {
+    _dom.style.height = _state.scrollHeight + "px";
   },
   IOHandler() {},
 };

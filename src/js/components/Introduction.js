@@ -1,9 +1,12 @@
 import Dom from "../controllers/Dom";
 
-let _state = {};
+let _state = {
+  title: "Introduction",
+  scrollHeight: 4 * window.innerHeight,
+};
 let _dom = null;
 
-const template = () => `
+const template = ({ scrollHeight }) => `
     <span>Introduction</span>
 `;
 
@@ -22,8 +25,19 @@ const Introduction = {
       _dom = document.querySelector("#introduction");
       if (!_dom) throw new Error("Root component is needed for rendering");
     }
-
-    Dom.print(_dom, template());
+    Dom.print(_dom, template({ ..._state }));
+    Introduction._afterRender();
+  },
+  set state(obj) {
+    _state = {
+      ...obj,
+    };
+  },
+  get state() {
+    return _state;
+  },
+  _afterRender() {
+    _dom.style.height = _state.scrollHeight + "px";
   },
   IOHandler() {},
 };

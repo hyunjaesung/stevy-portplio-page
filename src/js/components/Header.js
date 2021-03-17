@@ -1,10 +1,20 @@
 import Dom from "../controllers/Dom";
+import dialSrc from "../../images/volume_dial.png";
 
-let _state = {};
+const dial = document.createElement("img");
+dial.src = dialSrc;
+
+let _state = {
+  panelTitle: "",
+};
 let _dom = null;
 
-const template = () => `
-    <span>Header</span>
+const template = ({ panelTitle }) => `
+    <div class="panel_container">
+      <div class="panel_info_1">Developer Stevy</div>
+      <div class="panel_info_2">${panelTitle}</div>
+    </div>
+    <div class="img_container"></div>
 `;
 
 const Header = {
@@ -18,14 +28,31 @@ const Header = {
   }, // 렌더전에 state에 값 넣거나 할때
 
   render() {
-    console.log("header");
     if (_dom === null) {
       _dom = document.querySelector("#header");
       if (!_dom) throw new Error("Root component is needed for rendering");
     }
-    Dom.print(_dom, template());
+
+    Dom.print(_dom, template(_state));
+    this._afterRender();
   },
-  IOHandler() {},
+
+  set state(obj) {
+    _state = {
+      ...obj,
+    };
+  },
+  get state() {
+    return _state;
+  },
+  _afterRender() {
+    document.querySelector("#header .img_container").appendChild(dial);
+  },
+  scrollHandler({ title }) {
+    if (title !== _state.panelTitle) {
+      _dom.querySelector(".panel_info_2").innerHTML = title;
+    }
+  },
 };
 
 export default Header;

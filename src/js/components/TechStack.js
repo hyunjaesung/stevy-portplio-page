@@ -1,6 +1,9 @@
 import Dom from "../controllers/Dom";
 
-let _state = {};
+let _state = {
+  title: "Tech",
+  scrollHeight: 4 * window.innerHeight,
+};
 let _dom = null;
 
 const template = () => `
@@ -24,6 +27,18 @@ const TechStack = {
     }
 
     Dom.print(_dom, template());
+    TechStack._afterRender();
+  },
+  set state(obj) {
+    _state = {
+      ...obj,
+    };
+  },
+  get state() {
+    return _state;
+  },
+  _afterRender() {
+    _dom.style.height = _state.scrollHeight + "px";
   },
   IOHandler() {},
 };

@@ -1,4 +1,5 @@
 import "./styles/default.scss";
+import "./styles/index.scss";
 import Dom from "./js/controllers/Dom";
 import Container from "./js/components/Container";
 import Header from "./js/components/Header";
