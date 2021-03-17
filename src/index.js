@@ -1,18 +1,13 @@
-// Test import of a JavaScript function
-import { example } from "./js/example";
+import "./styles/default.scss";
+import Dom from "./js/controllers/Dom";
+import Container from "./js/components/Container";
+import Header from "./js/components/Header";
+import Introduction from "./js/components/Introduction";
+import TechStack from "./js/components/TechStack";
+import Projects from "./js/components/Projects";
+import Contact from "./js/components/Contact";
 
-// Test import of an asset
-import webpackLogo from "./images/webpack-logo.svg";
-
-// Test import of styles
-import "./styles/index.scss";
-
-// Appending to the DOM
-const logo = document.createElement("img");
-logo.src = webpackLogo;
-
-const heading = document.createElement("h1");
-heading.textContent = example();
-
-const app = document.querySelector("#root");
-app.append(logo, heading);
+Dom.print(
+  document.querySelector("#root"),
+  `${Container.init(Header, Introduction, TechStack, Projects, Contact)}`
+);
