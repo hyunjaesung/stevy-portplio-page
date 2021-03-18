@@ -95,4 +95,18 @@ html {
       }
     }
   }
+
+  #introduction {
+    .canvas-container {
+      height: 50vh;
+      width: 100vw;
+      position: sticky;
+      top: 15vh;
+      #intro-canvas {
+        margin-right: 50%;
+        width: 400px;
+        z-index: 0;
+      }
+    }
+  }
 }

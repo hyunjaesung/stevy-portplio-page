@@ -1,4 +1,5 @@
 import Dom from "../controllers/Dom";
+import setScrollAnimate from "../utils/setScrollAnimate";
 
 function importAll(r) {
   let images = {};
@@ -12,16 +13,20 @@ let _state = {
   title: "Introduction",
   scrollHeight: 6 * window.innerHeight,
   videoImages: [],
+  animate: [],
 };
 let _dom = null;
 
-const triggerSectionScrollAnimate = (sectionScrollRatio) => {
+const setCanvasVideo = (sectionScrollRatio) => {
   const context = _dom.querySelector("#intro-canvas").getContext("2d");
   const videos = _state.videoImages;
-
   const videoIdx = parseInt((videos.length * sectionScrollRatio) / 100);
-
   context.drawImage(_state.videoImages[videoIdx], -50, 0, 240, 180);
+};
+
+const triggerSectionScrollAnimate = (sectionScrollRatio) => {
+  setCanvasVideo(sectionScrollRatio);
+  setScrollAnimate(_dom, _state.animate, sectionScrollRatio);
 };
 
 const fileNum = (num = 0) => {
@@ -85,11 +90,14 @@ const Introduction = {
   _afterRender() {
     _dom.style.height = _state.scrollHeight + "px";
     setImageElement();
-    console.log(_state.videoImages);
+    window.addEventListener("load", () => {
+      setCanvasVideo(1);
+    });
   },
   scrollHandler({ pageScrollRatio, sectionScrollRatio }) {
-    triggerSectionScrollAnimate(sectionScrollRatio);
-    console.log(pageScrollRatio, sectionScrollRatio);
+    requestAnimationFrame(() => {
+      triggerSectionScrollAnimate(sectionScrollRatio);
+    });
   },
 };
 

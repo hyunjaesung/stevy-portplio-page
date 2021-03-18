@@ -1,5 +1,6 @@
 import Dom from "../controllers/Dom";
 import dialSrc from "../../images/volume_dial.png";
+import setScrollAnimate from "../utils/setScrollAnimate";
 
 const dial = document.createElement("img");
 dial.src = dialSrc;
@@ -31,24 +32,7 @@ const template = ({ panelTitle }) => `
 `;
 
 const triggerSectionScrollAnimate = (sectionScrollRatio) => {
-  _state.animate.forEach(({ query, info = [] }) => {
-    const target = _dom.querySelector(query).style;
-    info.forEach(({ trigger, property, value }) => {
-      const [startV, endV] = value;
-      const [startR, endR] = trigger;
-      if (
-        sectionScrollRatio / 100 >= startR &&
-        sectionScrollRatio / 100 <= endR
-      ) {
-        const result = ((endV - startV) * sectionScrollRatio) / 100 + startV;
-        if (property === "transform") {
-          target[property] = `translate3d(0, ${result}%, 0)`;
-        } else {
-          target[property] = result;
-        }
-      }
-    });
-  });
+  setScrollAnimate(_dom, _state.animate, sectionScrollRatio);
 };
 
 const Header = {
