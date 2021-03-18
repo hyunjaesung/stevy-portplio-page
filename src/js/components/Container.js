@@ -4,17 +4,39 @@ import Header from "./Header";
 let _children = [];
 let _dom = null;
 
-const calcRatio = () => {};
+const getPageScrollRatio = () => {
+  return parseInt(
+    (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)) *
+      100
+  );
+};
+
+const getSectionYOffSet = (curIdx) => {
+  let preScrollHeight = 0;
+  for (let i = 0; i < curIdx; i++) {
+    if (_children[i].state.scrollHeight) {
+      preScrollHeight += _children[i].state.scrollHeight;
+    }
+  }
+  return window.pageYOffset - preScrollHeight;
+};
+
+const getSectionScrollRatio = (curIdx) => {
+  const sectionYOffset = getSectionYOffSet(curIdx);
+  return parseInt(
+    (sectionYOffset / _children[curIdx].state.scrollHeight) * 100
+  );
+};
 
 const getCurrentDomIdx = (children) => {
-  let totalScrollHeight = 0;
+  let curScrollHeight = 0;
   let currentScene = 0;
   const yOffset = window.pageYOffset;
   for (let i = 1; i < children.length; i++) {
     if (children[i].state.scrollHeight) {
-      totalScrollHeight += children[i].state.scrollHeight;
+      curScrollHeight += children[i].state.scrollHeight;
     }
-    if (totalScrollHeight >= yOffset) {
+    if (curScrollHeight >= yOffset) {
       currentScene = i;
       break;
     }
@@ -24,7 +46,15 @@ const getCurrentDomIdx = (children) => {
 
 const scrollHandler = () => {
   const curIdx = getCurrentDomIdx(_children);
-  Header.scrollHandler({ title: _children[curIdx].state.title });
+  const pageScrollRatio = getPageScrollRatio();
+  const sectionScrollRatio = getSectionScrollRatio(curIdx);
+
+  Header.scrollHandler({
+    title: _children[curIdx].state.title,
+    pageScrollRatio,
+  });
+
+  // console.log(pageScrollRatio, sectionScrollRatio);
 };
 
 const Container = {

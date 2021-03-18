@@ -13,7 +13,7 @@ module.exports = {
   output: {
     path: paths.build,
     filename: "[name].bundle.js",
-    publicPath: "/",
+    publicPath: "/"
   },
 
   // Customize the webpack build process
@@ -28,37 +28,53 @@ module.exports = {
           from: paths.public,
           to: "assets",
           globOptions: {
-            ignore: ["*.DS_Store"],
+            ignore: ["*.DS_Store"]
           },
-          noErrorOnMissing: true,
-        },
-      ],
+          noErrorOnMissing: true
+        }
+      ]
     }),
 
     // Generates an HTML file from a template
     // Generates deprecation warning: https://github.com/jantimon/html-webpack-plugin/issues/1501
     new HtmlWebpackPlugin({
       title: "webpack Boilerplate",
-      favicon: paths.src + "/images/favicon.png",
+      // favicon: paths.src + "/images/favicon.png",
       template: paths.src + "/template.html", // template file
-      filename: "index.html", // output file
+      filename: "index.html" // output file
     }),
 
     // Prettier configuration
-    new PrettierPlugin(),
+    new PrettierPlugin()
   ],
 
   // Determine how modules within the project are treated
   module: {
     rules: [
       // JavaScript: Use Babel to transpile JavaScript files
-      { test: /\.js$/, use: ["babel-loader"] },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            plugins: [
+              [
+                "@babel/plugin-proposal-pipeline-operator",
+                {
+                  proposal: "minimal"
+                }
+              ]
+            ]
+          }
+        }
+      },
 
       // Images: Copy image files to build folder
       { test: /\.(?:ico|gif|png|jpg|jpeg)$/i, type: "asset/resource" },
 
       // Fonts and SVGs: Inline files
-      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" },
-    ],
-  },
+      { test: /\.(woff(2)?|eot|ttf|otf|svg|)$/, type: "asset/inline" }
+    ]
+  }
 };

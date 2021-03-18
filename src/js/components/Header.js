@@ -48,10 +48,13 @@ const Header = {
   _afterRender() {
     document.querySelector("#header .img_container").appendChild(dial);
   },
-  scrollHandler({ title }) {
+  scrollHandler({ title = "", pageScrollRatio = 0 }) {
     if (title !== _state.panelTitle) {
       _dom.querySelector(".panel_info_2").innerHTML = title;
     }
+    _dom.querySelector(".img_container img").style.transform = `rotate(${
+      (360 * pageScrollRatio) / 100
+    }deg)`;
   },
 };
 
