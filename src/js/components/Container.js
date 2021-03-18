@@ -52,9 +52,10 @@ const scrollHandler = () => {
   Header.scrollHandler({
     title: _children[curIdx].state.title,
     pageScrollRatio,
+    sectionScrollRatio,
   });
 
-  // console.log(pageScrollRatio, sectionScrollRatio);
+  _children[curIdx].scrollHandler({ pageScrollRatio, sectionScrollRatio });
 };
 
 const Container = {

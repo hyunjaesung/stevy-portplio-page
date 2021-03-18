@@ -39,7 +39,7 @@ const Projects = {
   _afterRender() {
     _dom.style.height = _state.scrollHeight + "px";
   },
-  IOHandler() {},
+  scrollHandler() {},
 };
 
 export default Projects;
