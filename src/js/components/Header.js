@@ -1,9 +1,5 @@
 import Dom from "../controllers/Dom";
-import dialSrc from "../../images/volume_dial.png";
 import setScrollAnimate from "../utils/setScrollAnimate";
-
-const dial = document.createElement("img");
-dial.src = dialSrc;
 
 // query / trigger ratio / property / value
 let _state = {
