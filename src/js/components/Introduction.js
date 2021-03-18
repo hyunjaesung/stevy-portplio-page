@@ -58,6 +58,20 @@ const setImageElement = () => {
 const template = ({ scrollHeight }) => `
   <div class="canvas-container">
     <canvas id="intro-canvas"></canvas>
+    <div id="intro-p-1">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat voluptatem possimus quibusdam velit ex! Quam odit architecto harum pariatur sapiente quis? Fugit aut asperiores dicta perspiciatis? Recusandae, saepe a! Esse minus nesciunt qui voluptate nobis laudantium voluptatem ullam quam at vel? Repellat nihil id quas! A doloribus molestias voluptates dicta dignissimos accusantium vel numquam, cupiditate voluptas ipsum velit optio minus, at libero nisi doloremque quas necessitatibus nihil minima magnam corrupti fugiat? Vel laboriosam sunt nihil, eveniet consectetur nostrum laborum, assumenda quis tempora nulla perspiciatis blanditiis dolorum repellendus quaerat tenetur distinctio. Adipisci rem eveniet aliquid reiciendis voluptate reprehenderit nulla fuga nam!
+      <br>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, veritatis. Molestiae illo placeat velit necessitatibus recusandae ipsum, numquam nobis a eos voluptatum optio quasi nisi dolorem accusantium similique libero autem, aut officia assumenda, eum aliquid ut? Voluptas, provident quo. Sed est sit repellendus earum dignissimos incidunt quam aut, placeat voluptas!
+      </p>
+    </div>
+    <div id="intro-p-2">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, recusandae.
+      <br>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti soluta asperiores doloremque magni officia. Amet corrupti ipsa saepe maxime incidunt?
+      </p>
+  </div>
   </div>
 `;
 
