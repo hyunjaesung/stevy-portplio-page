@@ -5,10 +5,7 @@ let _children = [];
 let _dom = null;
 
 const getPageScrollRatio = () => {
-  return parseInt(
-    (window.pageYOffset / (document.body.offsetHeight - window.innerHeight)) *
-      100
-  );
+  return window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
 };
 
 const getSectionYOffSet = (curIdx) => {
@@ -23,9 +20,7 @@ const getSectionYOffSet = (curIdx) => {
 
 const getSectionScrollRatio = (curIdx) => {
   const sectionYOffset = getSectionYOffSet(curIdx);
-  return parseInt(
-    (sectionYOffset / _children[curIdx].state.scrollHeight) * 100
-  );
+  return sectionYOffset / _children[curIdx].state.scrollHeight;
 };
 
 const getCurrentDomIdx = (children) => {

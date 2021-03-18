@@ -13,14 +13,54 @@ let _state = {
   title: "Introduction",
   scrollHeight: 6 * window.innerHeight,
   videoImages: [],
-  animate: [],
+  animate: [
+    {
+      query: ".canvas-container",
+      start: 0,
+      finish: 0.85,
+    },
+    {
+      query: "#intro-p-1",
+      start: 0,
+      finish: 0.4,
+      info: [
+        {
+          trigger: [0, 0.2],
+          property: "opacity",
+          value: [0, 1],
+        },
+        {
+          trigger: [0.2, 0.4],
+          property: "opacity",
+          value: [1, 0],
+        },
+      ],
+    },
+    {
+      query: "#intro-p-2",
+      start: 0.4,
+      finish: 0.9,
+      info: [
+        {
+          trigger: [0.4, 0.6],
+          property: "opacity",
+          value: [0, 1],
+        },
+        {
+          trigger: [0.6, 0.9],
+          property: "opacity",
+          value: [1, 0],
+        },
+      ],
+    },
+  ],
 };
 let _dom = null;
 
 const setCanvasVideo = (sectionScrollRatio) => {
   const context = _dom.querySelector("#intro-canvas").getContext("2d");
   const videos = _state.videoImages;
-  const videoIdx = parseInt((videos.length * sectionScrollRatio) / 100);
+  const videoIdx = parseInt(videos.length * sectionScrollRatio);
   context.drawImage(_state.videoImages[videoIdx], -50, 0, 240, 180);
 };
 
@@ -56,22 +96,35 @@ const setImageElement = () => {
 };
 
 const template = ({ scrollHeight }) => `
-  <div class="canvas-container">
+  <div class="canvas-container" style="display:none;">
     <canvas id="intro-canvas"></canvas>
-    <div id="intro-p-1">
+  </div>
+  <div class="intro-p" id="intro-p-1" style="display:none;">
+    <div class="intro-flex">
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat voluptatem possimus quibusdam velit ex! Quam odit architecto harum pariatur sapiente quis? Fugit aut asperiores dicta perspiciatis? Recusandae, saepe a! Esse minus nesciunt qui voluptate nobis laudantium voluptatem ullam quam at vel? Repellat nihil id quas! A doloribus molestias voluptates dicta dignissimos accusantium vel numquam, cupiditate voluptas ipsum velit optio minus, at libero nisi doloremque quas necessitatibus nihil minima magnam corrupti fugiat? Vel laboriosam sunt nihil, eveniet consectetur nostrum laborum, assumenda quis tempora nulla perspiciatis blanditiis dolorum repellendus quaerat tenetur distinctio. Adipisci rem eveniet aliquid reiciendis voluptate reprehenderit nulla fuga nam!
+        개발자<br><strong>성현제</strong>
+        <br>
+        <br>
+        프론트 앤드 기술을 다루는 <strong>Javascript</strong> 개발자입니다
       <br>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, veritatis. Molestiae illo placeat velit necessitatibus recusandae ipsum, numquam nobis a eos voluptatum optio quasi nisi dolorem accusantium similique libero autem, aut officia assumenda, eum aliquid ut? Voluptas, provident quo. Sed est sit repellendus earum dignissimos incidunt quam aut, placeat voluptas!
+      <br>
+        <strong>웹 기술</strong>을 배우는 것을 즐기고<br>
+        <strong>새로운 기술</strong>을 빠르게 흡수하며<br><strong>주도적</strong>으로 업무를 수행 할 수 있습니다
       </p>
     </div>
-    <div id="intro-p-2">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, recusandae.
-      <br>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti soluta asperiores doloremque magni officia. Amet corrupti ipsa saepe maxime incidunt?
-      </p>
   </div>
+  <div class="intro-p" id="intro-p-2" style="display:none;">
+    <div class="intro-flex">
+      <p>
+      진부할 수 도 있지만 <strong>꾸준함</strong>으로 성취감을 얻고
+      <br>
+        <strong>커뮤니티</strong>에 기여하는 개발자가 되고자 노력합니다
+      </p>
+      <br>
+      <p>
+        <strong>좋은 동료</strong>를 만나 함께 <strong>피드백</strong>을 나누고 성장하고 싶습니다
+      </p>
+    </div>
   </div>
 `;
 
@@ -105,7 +158,7 @@ const Introduction = {
     _dom.style.height = _state.scrollHeight + "px";
     setImageElement();
     window.addEventListener("load", () => {
-      setCanvasVideo(1);
+      setCanvasVideo(0.001);
     });
   },
   scrollHandler({ pageScrollRatio, sectionScrollRatio }) {

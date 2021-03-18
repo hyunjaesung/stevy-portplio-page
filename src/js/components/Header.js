@@ -28,7 +28,8 @@ const template = ({ panelTitle }) => `
       <div class="panel_info_1">Developer Stevy</div>
       <div class="panel_info_2">${panelTitle}</div>
     </div>
-    <div class="img_container"></div>
+    
+    <div class="img_container"><div class="circle"><div class="dot"></span></div></div>
 `;
 
 const triggerSectionScrollAnimate = (sectionScrollRatio) => {
@@ -52,7 +53,6 @@ const Header = {
     }
 
     Dom.print(_dom, template(_state));
-    this._afterRender();
   },
 
   set state(obj) {
@@ -63,9 +63,7 @@ const Header = {
   get state() {
     return _state;
   },
-  _afterRender() {
-    document.querySelector("#header .img_container").appendChild(dial);
-  },
+
   scrollHandler({ title = "", pageScrollRatio = 0, sectionScrollRatio = 0 }) {
     if (title !== _state.panelTitle) {
       _dom.querySelector(".panel_info_2").innerHTML = title;
@@ -74,8 +72,8 @@ const Header = {
     requestAnimationFrame(() => {
       triggerSectionScrollAnimate(sectionScrollRatio);
 
-      _dom.querySelector(".img_container img").style.transform = `rotate(${
-        (360 * pageScrollRatio) / 100
+      _dom.querySelector(".circle").style.transform = `rotate(${
+        360 * pageScrollRatio
       }deg)`;
     });
   },

@@ -43,6 +43,26 @@ html {
     width: 18vw;
     margin: 1.3em;
     cursor: pointer;
+    .circle {
+      background: conic-gradient(white, gray, white, gray, white);
+      border-radius: 50%;
+      width: 55px;
+      height: 52px;
+      margin-right: 1.3em;
+      border: 1px dashed darkgray;
+      box-shadow: -1px 2px 5px grey;
+      display: flex;
+      justify-content: center;
+    }
+    .dot {
+      z-index: 10;
+      margin: 1px;
+      height: 4px;
+      width: 4px;
+      opacity: 0.7;
+      background-color: #c0392b;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -60,14 +80,31 @@ html {
     width: 100vw;
     position: sticky;
     top: 15vh;
+
     #intro-canvas {
       width: 100%;
       z-index: 0;
     }
   }
+  .intro-p {
+    margin: 30px;
+    // width: 100vw;
+    position: fixed;
+    top: 40vh;
+    font-weight: bold;
+    text-align: left;
+    font-size: 1.7rem;
+    color: gray;
+    strong {
+      color: #2d3436;
+    }
+    .name {
+      font-size: 2rem;
+    }
+  }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 550px) {
   .nav {
     height: 120px;
     background-color: transparent;
@@ -89,10 +126,11 @@ html {
       margin: 0px;
       margin-right: 10vw;
       display: flex;
-      justify-content: flex-end;
-      img {
-        height: 100px;
-      }
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+      width: 150px;
+      z-index: 7;
     }
   }
 
@@ -102,11 +140,30 @@ html {
       width: 100vw;
       position: sticky;
       top: 15vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       #intro-canvas {
         margin-right: 50%;
         width: 400px;
         z-index: 0;
       }
+    }
+    .intro-p {
+      // width: 100vw;
+      font-size: 2.5rem;
+      // padding-left: 10vw;
+      // padding-right: 10vw;
+      .intro-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    #intro-p-2 {
+      text-align: center;
     }
   }
 }

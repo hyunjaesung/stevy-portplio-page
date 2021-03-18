@@ -1,23 +1,32 @@
 export default function (dom, animate, sectionScrollRatio) {
-  animate.forEach(({ query, info = [] }) => {
+  animate.forEach(({ query, info = [], start = 0, finish = 1 }) => {
     const target = dom.querySelector(query);
     info.forEach(({ trigger, property, value }) => {
       const [startV, endV] = value;
       const [startR, endR] = trigger;
 
-      if (
-        sectionScrollRatio / 100 >= startR &&
-        sectionScrollRatio / 100 <= endR
-      ) {
-        const result = ((endV - startV) * sectionScrollRatio) / 100 + startV;
+      if (sectionScrollRatio >= startR && sectionScrollRatio <= endR) {
+        const result =
+          ((sectionScrollRatio - startR) / (endR - startR)) * (endV - startV) +
+          startV;
         if (property === "transform") {
-          target.style[property] = `translate3d(0, ${result}%, 0)`;
+          target.style[property] = `translate3d(0, ${parseInt(
+            result * 100
+          )}%, 0)`;
         } else {
-          target.style[property] = result;
+          target.style[property] = result.toFixed(1);
         }
-      } else {
-        target.setAttribute("style", `display:"none";`);
       }
     });
+    if (sectionScrollRatio >= start && sectionScrollRatio <= finish) {
+      console.log(query, start, sectionScrollRatio, finish);
+      if (target.style.display === "none") {
+        target.style.display = "block";
+      }
+    } else {
+      if (target.style.display !== "none") {
+        target.style.display = "none";
+      }
+    }
   });
 }
