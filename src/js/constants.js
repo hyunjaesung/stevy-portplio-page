@@ -1,1 +1,1 @@
-export const SECTION_HEIGHT_PRESET = [6, 4, 4, 4];
+export const SECTION_HEIGHT_PRESET = [6, 4, 2, 4];

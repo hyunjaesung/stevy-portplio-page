@@ -12,7 +12,7 @@ let _state = {
       finish: 0.85,
       info: [
         {
-          trigger: [0.1, 0.15],
+          trigger: [0.1, 0.2],
           property: "opacity",
           value: [0, 1],
         },

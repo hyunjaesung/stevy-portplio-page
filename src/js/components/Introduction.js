@@ -25,11 +25,11 @@ let _state = {
       start: 0,
       finish: 0.4,
       info: [
-        {
-          trigger: [0, 0.2],
-          property: "opacity",
-          value: [0, 1],
-        },
+        // {
+        //   trigger: [0, 0.2],
+        //   property: "opacity",
+        //   value: [0, 1],
+        // },
         {
           trigger: [0.2, 0.4],
           property: "opacity",
@@ -105,7 +105,7 @@ const template = ({ scrollHeight }) => `
   <div class="intro-p" id="intro-p-1" style="display:none;">
     <div class="intro-flex">
       <p>
-        개발자<br><strong>성현제</strong>
+        <strong class="name" style="color:gray;">개발자</strong><br><strong class="name">성현제</strong>
         <br>
         <br>
         프론트 앤드 기술을 다루는 <strong>Javascript</strong> 개발자입니다
