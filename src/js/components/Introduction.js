@@ -1,5 +1,6 @@
 import Dom from "../controllers/Dom";
 import setScrollAnimate from "../utils/setScrollAnimate";
+import { SECTION_HEIGHT_PRESET } from "../constants";
 
 function importAll(r) {
   let images = {};
@@ -11,7 +12,7 @@ function importAll(r) {
 
 let _state = {
   title: "Introduction",
-  scrollHeight: 6 * window.innerHeight,
+  scrollHeight: SECTION_HEIGHT_PRESET[0] * window.innerHeight,
   videoImages: [],
   animate: [
     {
@@ -61,7 +62,9 @@ const setCanvasVideo = (sectionScrollRatio) => {
   const context = _dom.querySelector("#intro-canvas").getContext("2d");
   const videos = _state.videoImages;
   const videoIdx = parseInt(videos.length * sectionScrollRatio);
-  context.drawImage(_state.videoImages[videoIdx], -50, 0, 240, 180);
+  if (_state.videoImages[videoIdx]) {
+    context.drawImage(_state.videoImages[videoIdx], -50, 0, 240, 180);
+  }
 };
 
 const triggerSectionScrollAnimate = (sectionScrollRatio) => {

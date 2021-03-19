@@ -1,9 +1,14 @@
 import Dom from "../controllers/Dom";
+import MoveTo from "moveto";
 import setScrollAnimate from "../utils/setScrollAnimate";
+import { SECTION_HEIGHT_PRESET } from "../constants";
 
-// query / trigger ratio / property / value
+const moveTo = new MoveTo({ tolerance: -1 });
+
 let _state = {
   panelTitle: "",
+  curSection: 0,
+  sections: ["introduction", "techstack", "projects", "contact"],
   animate: [
     {
       query: ".panel_info_2",
@@ -18,6 +23,15 @@ let _state = {
   ],
 };
 let _dom = null;
+
+const buttonClickHandler = () => {
+  let moveIdx = 0;
+  if (_state.curSection < _state.sections.length - 1) {
+    moveIdx = _state.curSection + 1;
+  }
+  _state.curSection = moveIdx;
+  moveTo.move(document.getElementById(_state.sections[moveIdx]));
+};
 
 const template = ({ panelTitle }) => `
     <div class="panel_container">
@@ -49,6 +63,13 @@ const Header = {
     }
 
     Dom.print(_dom, template(_state));
+    Header._afterRender();
+  },
+
+  _afterRender() {
+    _dom
+      .querySelector(".img_container")
+      .addEventListener("click", buttonClickHandler);
   },
 
   set state(obj) {
@@ -60,10 +81,16 @@ const Header = {
     return _state;
   },
 
-  scrollHandler({ title = "", pageScrollRatio = 0, sectionScrollRatio = 0 }) {
+  scrollHandler({
+    title = "",
+    pageScrollRatio = 0,
+    sectionScrollRatio = 0,
+    curSection = 0,
+  }) {
     if (title !== _state.panelTitle) {
       _dom.querySelector(".panel_info_2").innerHTML = title;
       _dom.querySelector(".panel_info_2").setAttribute("style", "");
+      _state.curSection = curSection;
     }
     requestAnimationFrame(() => {
       triggerSectionScrollAnimate(sectionScrollRatio);

@@ -19,7 +19,6 @@ export default function (dom, animate, sectionScrollRatio) {
       }
     });
     if (sectionScrollRatio >= start && sectionScrollRatio <= finish) {
-      console.log(query, start, sectionScrollRatio, finish);
       if (target.style.display === "none") {
         target.style.display = "block";
       }

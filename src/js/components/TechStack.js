@@ -1,8 +1,9 @@
 import Dom from "../controllers/Dom";
+import { SECTION_HEIGHT_PRESET } from "../constants";
 
 let _state = {
   title: "Tech",
-  scrollHeight: 4 * window.innerHeight,
+  scrollHeight: SECTION_HEIGHT_PRESET[1] * window.innerHeight,
 };
 let _dom = null;
 

@@ -135,6 +135,9 @@ html {
   }
 
   #introduction {
+    display: flex;
+    justify-content: center;
+
     .canvas-container {
       height: 50vh;
       width: 100vw;
