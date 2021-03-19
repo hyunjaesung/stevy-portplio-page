@@ -17,6 +17,11 @@ let _state = {
           value: [0, 1],
         },
         {
+          trigger: [0.2, 0.7],
+          property: "opacity",
+          value: [1, 1],
+        },
+        {
           trigger: [0.7, 0.9],
           property: "opacity",
           value: [1, 0],
