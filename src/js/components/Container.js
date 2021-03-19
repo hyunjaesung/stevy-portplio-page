@@ -43,7 +43,7 @@ const scrollHandler = () => {
   const curIdx = getCurrentDomIdx(_children);
   const pageScrollRatio = getPageScrollRatio();
   const sectionScrollRatio = getSectionScrollRatio(curIdx);
-  console.log(curIdx);
+
   Header.scrollHandler({
     title: _children[curIdx].state.title,
     curSection: curIdx - 1,

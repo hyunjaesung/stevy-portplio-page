@@ -13,6 +13,8 @@ export default function (dom, animate, sectionScrollRatio) {
           target.style[property] = `translate3d(0, ${parseInt(
             result * 100
           )}%, 0)`;
+        } else if (property === "top") {
+          target.style[property] = `${result.toFixed(1)}px`;
         } else {
           target.style[property] = result.toFixed(1);
         }
