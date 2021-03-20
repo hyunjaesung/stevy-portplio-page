@@ -98,8 +98,8 @@ const monitorContentsTemplate = ({ title, summary, techStack, period }) => `
 `;
 
 const template = ({ views }) => `
-    <div class="projects_container">
-      <div class="mac_container">
+    <div class="projects_container" style="display:none;">
+      <div class="mac_container" >
         <p style="font-size:2.5rem;font-weight:bold;color:gray;">
           제가 진행한 소중한 <strong>프로젝트</strong>들입니다
         </p>
