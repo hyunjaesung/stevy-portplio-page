@@ -142,3 +142,6 @@ button {
   background: transparent;
   cursor: pointer;
 }
+button:focus {
+  outline: 0;
+}

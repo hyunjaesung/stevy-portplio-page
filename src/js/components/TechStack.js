@@ -3,7 +3,7 @@ import { SECTION_HEIGHT_PRESET } from "../constants";
 import setScrollAnimate from "../utils/setScrollAnimate";
 
 let _state = {
-  title: "Tech",
+  title: "Skills",
   scrollHeight: SECTION_HEIGHT_PRESET[1] * window.innerHeight,
   animate: [
     {
