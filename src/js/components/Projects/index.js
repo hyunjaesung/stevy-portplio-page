@@ -83,7 +83,6 @@ const triggerSectionScrollAnimate = (sectionScrollRatio) => {
 };
 
 const arrowEventHandler = (event) => {
-  console.log(event.target);
   if (event.target.classList.contains("arrow")) {
     if (event.target.classList.contains("arrow-left")) {
       if (_state.curViewIdx > 0) {
@@ -108,6 +107,22 @@ const arrowEventHandler = (event) => {
       _state.views[_state.curViewIdx]
     );
   }
+};
+
+const modalOpenHandler = ({}) => {
+  const infoContainer = _dom.querySelector(".info_container");
+  infoContainer.innerHTML = infoContentsTemplate(
+    _state.views[_state.curViewIdx]
+  );
+  _dom.querySelector(".project_info_container").style.visibility = "visible";
+  _dom.querySelector(".project_info_container").style.opacity = 1;
+
+  document.body.style.overflow = "hidden";
+};
+const modalCloseHandler = ({}) => {
+  _dom.querySelector(".project_info_container").style.visibility = "hidden";
+  _dom.querySelector(".project_info_container").style.opacity = 0;
+  document.body.style.overflow = "visible";
 };
 
 const Projects = {
@@ -146,6 +161,11 @@ const Projects = {
     _dom
       .querySelector(".mac_arrow_container")
       .addEventListener("click", arrowEventHandler);
+
+    _dom
+      .querySelector(".mac_monitor_search")
+      .addEventListener("click", modalOpenHandler);
+    _dom.querySelector(".cover").addEventListener("click", modalCloseHandler);
   },
   scrollHandler({ pageScrollRatio, sectionScrollRatio }) {
     requestAnimationFrame(() => {

@@ -523,7 +523,9 @@ html {
 
       .project_info_container {
         position: relative;
-        display: none;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.5s ease-in-out;
         height: 120%;
         width: 100vw;
         .cover {
