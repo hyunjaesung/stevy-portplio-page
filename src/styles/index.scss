@@ -91,21 +91,31 @@ html {
       z-index: 0;
     }
   }
-  .intro-p {
-    margin: 30px;
-    // width: 100vw;
-    position: fixed;
-    top: 40vh;
-    font-weight: bold;
-    text-align: left;
-    font-size: 1.7rem;
-    color: gray;
-    strong {
-      color: #2d3436;
-    }
-    .name {
-      font-size: 2rem;
-    }
+}
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    font-size: 3rem;
+    text-align: center;
+  }
+}
+
+.intro-p {
+  margin: 30px;
+  // width: 100vw;
+  position: fixed;
+  top: 40vh;
+  font-weight: bold;
+  text-align: left;
+  font-size: 1.7rem;
+  color: gray;
+  strong {
+    color: #2d3436;
+  }
+  .name {
+    font-size: 2rem;
   }
 }
 
@@ -560,7 +570,7 @@ html {
                   display: none;
                 }
                 .title {
-                  font-size: 3vw;
+                  font-size: 2vw;
                   margin-bottom: 20%;
                   .line {
                     margin-top: 15px;
@@ -569,6 +579,9 @@ html {
                     border: 2px solid rgb(29, 29, 31);
                     border-radius: 3px;
                   }
+                }
+                .summary {
+                  font-size: 0.9vw;
                 }
               }
               .description {

@@ -85,7 +85,7 @@ export const template = ({ views }) => `
     <div class="projects_container" style="display:none;">
       <div class="mac_container" >
         <p style="font-size:2.5rem;font-weight:bold;color:gray;">
-          제가 진행한 소중한 <strong>프로젝트</strong>들입니다
+          제가 앞으로 진행할 소중한 <strong>프로젝트</strong>들입니다
         </p>
         <img class="mac_img">
         <div class="mac_monitor_container">

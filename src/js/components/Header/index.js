@@ -2,7 +2,7 @@ import Dom from "../../../js/controllers/Dom";
 import MoveTo from "moveto";
 import setScrollAnimate from "../../../js/utils/setScrollAnimate";
 
-const moveTo = new MoveTo({ tolerance: -1 });
+const moveTo = new MoveTo({ tolerance: -1, duration: 2000 });
 
 let _state = {
   panelTitle: "",

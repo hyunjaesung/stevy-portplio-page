@@ -38,38 +38,58 @@ let _state = {
   curViewIdx: 0,
   views: [
     {
-      title: "리액트로 영화앱 만들기",
-      imgSrc: macImage,
-      thumbnailSrc: testSrc,
-      summary: "리액트를 이용해서 영화앱을 만든 프로젝트",
-      techStack: ["react", "redux", "typescript", "webpack"],
+      title: "내 집 마련",
+      imgSrc:
+        "http://junggun.co.kr/wp-content/uploads/2017/03/cropped-maxresdefault.jpg",
+      thumbnailSrc:
+        "https://lh3.googleusercontent.com/proxy/i9TNPJvO-wxVoQjWCN7f20lDiHB6JLQXYCL_nsp6ADqd9D40f-CcjmjOvMgI6JUCVCiQChHjMY7fXOvXDhjAAIO2aKRAt48AlDxcaal7UTWqJux4VqmQ9bzJhxlwYApcZw",
+      summary: "나도 내 집 마련 하겠습니다!!",
+      techStack: ["투자로 돈 불리기", "꼬박 꼬박 돈 모으기"],
       level: "side",
-      description:
-        "<strong>리액트</strong>를 이용해서 <strong>영화앱</strong>을 만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트",
+      description: "저와 제 가족들이 살 집을 짓고 싶습니다 행복하겠죠?",
       period: "20.01.30 - 20.02.24",
-      link: "https://www.naver.com",
-      github: "https://www.github.com/hyunjaesung",
+      // link: "https://www.tmon.com",
+      // github: "https://www.github.com/hyunjaesung",
     },
     {
-      title: "NodeJS로 영화앱 만들기",
-      summary: "NodeJS로 영화앱 만든 프로젝트",
-      imgSrc: testSrc,
-      thumbnailSrc: testSrc,
-      techStack: ["react", "nodejs"],
+      title: "섹시 바디",
+      summary: "체지방 10% 가즈아",
+      imgSrc:
+        "http://simg.donga.com/ugc/MLBPARK/Board/15/81/94/10/1581941010795.jpg",
+      thumbnailSrc:
+        "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F24395936595DFC4B1EC19C",
+      techStack: ["피트니스", "다이어트"],
       level: "enter",
-      description: "NodeJS로 영화앱 만든 프로젝트 설명",
+      description: "올해 목표는 턱걸이 20개, 체지방 15% 입니다 잊지마시오",
       period: "3개월",
       link: "",
       github: "",
     },
     {
-      title: "NestJS로 영화앱 만든 프로젝트",
-      summary: "NestJS로 영화앱 만든 프로젝트, NestJS로 영화앱 만든 프로젝트",
-      imgSrc: testSrc,
-      thumbnailSrc: testSrc,
-      techStack: ["react", "redux", "typescript", "webpack"],
+      title: "남미 여행",
+      summary: "더 늦기 전에 남미 일주 가즈아",
+      imgSrc:
+        "https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/UiB/image/lmHJfX7QkcetR8er5rfRT_ba-t0.JPG",
+      thumbnailSrc:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1u1m9HV3jmLtB60Co64ynBd7EobdHkqe4Xg&usqp=CAU",
+      techStack: ["여행경비", "스페인어"],
       level: "enter",
-      description: "NestJS로 영화앱 만든 프로젝트의 설명",
+      description:
+        "가려면 퇴사 하고 가야하는데 과연 갈 수 있을 것인가 2달은 걸릴 텐데 궁금하다",
+      period: "3개월",
+      link: "",
+      github: "",
+    },
+    {
+      title: "포르쉐 구입",
+      summary: "저의 드림카 포르쉐 입니다",
+      imgSrc:
+        "http://img.danawa.com/cp_images/service/162/3256328/147605089793994031723.png",
+      thumbnailSrc:
+        "https://www.autodaily.co.kr/news/photo/201902/407643_36142_389.jpg",
+      techStack: ["아내의 등짝 스매싱", "엄마의 등짝 스매싱"],
+      level: "enter",
+      description: "평생 못살 걸 알지만 그래도 멋진 자동차 입니다",
       period: "3개월",
       link: "",
       github: "",

@@ -105,27 +105,27 @@ const template = ({ scrollHeight }) => `
   <div class="intro-p" id="intro-p-1" style="display:none;">
     <div class="intro-flex">
       <p>
-        <strong class="name" style="color:gray;">개발자</strong><br><strong class="name">성현제</strong>
+        <strong class="name" style="color:gray;">제 이름은</strong><br><strong class="name">성현제</strong>
         <br>
         <br>
-        프론트 앤드 기술을 다루는 <strong>Javascript</strong> 개발자입니다
+          열심히 살고 있는 <strong>광진구</strong>의 한 남자입니다
       <br>
       <br>
-        <strong>웹 기술</strong>을 배우는 것을 즐기고<br>
-        <strong>새로운 기술</strong>을 빠르게 흡수하며<br><strong>주도적</strong>으로 업무를 수행 할 수 있습니다
+        <strong>직업</strong>은 개발자이고<br>
+        <strong>취미</strong>도 개발인듯 하네요<br>
+        <strong>사진</strong> 찍는 것도 좋아하는데<br>
+        요즘은 찍을 일이 없네요..
       </p>
     </div>
   </div>
   <div class="intro-p" id="intro-p-2" style="display:none;">
     <div class="intro-flex">
       <p>
-      진부할 수 도 있지만 <strong>꾸준함</strong>으로 성취감을 얻고
+        <strong>잘</strong> 살고있는지는 모르겠지만<br> <strong>잘</strong> 살려고 하고있는거겠죠?
       <br>
-        <strong>커뮤니티</strong>에 기여하는 개발자가 되고자 노력합니다
-      </p>
       <br>
       <p>
-        <strong>좋은 동료</strong>를 만나 함께 <strong>피드백</strong>을 나누고 성장하고 싶습니다
+        <strong>좋은 사람</strong>을 만나 함께 <strong>같은 방향</strong>을 바라보며 걷고 싶습니다
       </p>
     </div>
   </div>

@@ -3,7 +3,7 @@ import { SECTION_HEIGHT_PRESET } from "../../../js/constants";
 import setScrollAnimate from "../../../js/utils/setScrollAnimate";
 
 let _state = {
-  title: "Skills",
+  title: "Favorite",
   scrollHeight: SECTION_HEIGHT_PRESET[1] * window.innerHeight,
   animate: [
     {
@@ -56,18 +56,16 @@ const template = () => `
   </div>
   <div class="tech-intro shutter">
     <div class='tech-container'>
-      JavaScript<br> 
-      TypeScript<br>
-      ReactJS<br>
-      NestJS<br>
-      NodeJS<br>
-      Webpack<br>
-      Babel<br>
-      Jest<br>
-      Cypress<br>
+      개발<br>
+      호주 브리즈번<br>
+      일식<br>
+      사진<br>
+      여행<br>
+      쿠엔틴 타란티노 영화<br>
+      북극곰<br>
     </div>
   </div>
-  <div class="tech-intro">를 다룹니다</div>
+  <div class="tech-intro">를(을) 좋아합니다</div>
 </div>
 `;
 // <div class="tech-intro">
