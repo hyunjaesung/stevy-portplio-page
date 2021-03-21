@@ -1,6 +1,6 @@
-import Dom from "../controllers/Dom";
-import setScrollAnimate from "../utils/setScrollAnimate";
-import { SECTION_HEIGHT_PRESET } from "../constants";
+import Dom from "../../../js/controllers/Dom";
+import setScrollAnimate from "../../../js/utils/setScrollAnimate";
+import { SECTION_HEIGHT_PRESET } from "../../../js/constants";
 
 function importAll(r) {
   let images = {};
@@ -89,7 +89,7 @@ const fileNum = (num = 0) => {
 const setImageElement = () => {
   let imgElem;
   const images = importAll(
-    require.context("../../images/introImage", false, /\.(png|jpe?g|svg)$/)
+    require.context("../../../images/introImage", false, /\.(png|jpe?g|svg)$/)
   );
   for (let i = 1; i < 151; i++) {
     imgElem = new Image();

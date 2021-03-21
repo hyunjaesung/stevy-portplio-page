@@ -1,5 +1,5 @@
-import Dom from "../controllers/Dom";
-import { SECTION_HEIGHT_PRESET } from "../constants";
+import Dom from "../../../js/controllers/Dom";
+import { SECTION_HEIGHT_PRESET } from "../../constants";
 
 let _state = {
   title: "Contact",

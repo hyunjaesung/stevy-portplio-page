@@ -1,7 +1,6 @@
-import Dom from "../controllers/Dom";
+import Dom from "../../../js/controllers/Dom";
 import MoveTo from "moveto";
-import setScrollAnimate from "../utils/setScrollAnimate";
-import { SECTION_HEIGHT_PRESET } from "../constants";
+import setScrollAnimate from "../../../js/utils/setScrollAnimate";
 
 const moveTo = new MoveTo({ tolerance: -1 });
 

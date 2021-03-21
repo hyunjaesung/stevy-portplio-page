@@ -1,6 +1,6 @@
-import Dom from "../controllers/Dom";
-import { SECTION_HEIGHT_PRESET } from "../constants";
-import setScrollAnimate from "../utils/setScrollAnimate";
+import Dom from "../../../js/controllers/Dom";
+import { SECTION_HEIGHT_PRESET } from "../../../js/constants";
+import setScrollAnimate from "../../../js/utils/setScrollAnimate";
 
 let _state = {
   title: "Skills",

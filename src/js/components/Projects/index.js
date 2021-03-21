@@ -1,8 +1,13 @@
-import Dom from "../controllers/Dom";
-import { SECTION_HEIGHT_PRESET } from "../constants";
-import macImage from "../../images/macintoshi.png";
-import setScrollAnimate from "../utils/setScrollAnimate";
-
+import Dom from "../../../js/controllers/Dom";
+import { SECTION_HEIGHT_PRESET } from "../../../js/constants";
+import macImage from "../../../images/macintoshi.png";
+import testSrc from "../../../images/test.png";
+import setScrollAnimate from "../../../js/utils/setScrollAnimate";
+import {
+  template,
+  monitorContentsTemplate,
+  infoContentsTemplate,
+} from "./templates";
 let _state = {
   title: "Project",
   scrollHeight: SECTION_HEIGHT_PRESET[2] * window.innerHeight,
@@ -34,101 +39,51 @@ let _state = {
   views: [
     {
       title: "리액트로 영화앱 만들기",
+      imgSrc: macImage,
+      thumbnailSrc: testSrc,
       summary: "리액트를 이용해서 영화앱을 만든 프로젝트",
-      techStack: ["react"],
+      techStack: ["react", "redux", "typescript", "webpack"],
       level: "side",
-      description: "리액트를 이용해서 영화앱을 만든 프로젝트",
-      result: "리액트를 이용해서 영화앱을 만든 프로젝트",
-      period: "3개월",
+      description:
+        "<strong>리액트</strong>를 이용해서 <strong>영화앱</strong>을 만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트리액트를 이용해서 영화앱을 만든 프로젝트",
+      period: "20.01.30 - 20.02.24",
+      link: "https://www.naver.com",
+      github: "https://www.github.com/hyunjaesung",
     },
     {
       title: "NodeJS로 영화앱 만들기",
       summary: "NodeJS로 영화앱 만든 프로젝트",
+      imgSrc: testSrc,
+      thumbnailSrc: testSrc,
       techStack: ["react", "nodejs"],
       level: "enter",
       description: "NodeJS로 영화앱 만든 프로젝트 설명",
-      result: "NodeJS로 영화앱 만든 프로젝트 결과",
       period: "3개월",
+      link: "",
+      github: "",
     },
     {
       title: "NestJS로 영화앱 만든 프로젝트",
       summary: "NestJS로 영화앱 만든 프로젝트, NestJS로 영화앱 만든 프로젝트",
-      techStack: ["react"],
+      imgSrc: testSrc,
+      thumbnailSrc: testSrc,
+      techStack: ["react", "redux", "typescript", "webpack"],
       level: "enter",
       description: "NestJS로 영화앱 만든 프로젝트의 설명",
-      result: "NestJS로 영화앱 만든 프로젝트의 결과",
       period: "3개월",
+      link: "",
+      github: "",
     },
   ],
 };
 let _dom = null;
-
-const monitorContentsTemplate = ({ title, summary, techStack, period }) => `
-<div class="mac_content">
-  <div class="title">
-    <div class="line_container" style="margin-right:20px;">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <span>${title}</span>
-    <div class="line_container" style="margin-left:20px;">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </div>
-  <div class="summary">
-      <div>
-        <div class="summary_title">${title}</div>
-        <div class="summary_content">
-          <p>
-            ${summary}
-          </p>
-        </div>
-      </div>
-  </div>
-</div>
-`;
-
-const template = ({ views }) => `
-    <div class="projects_container" style="display:none;">
-      <div class="mac_container" >
-        <p style="font-size:2.5rem;font-weight:bold;color:gray;">
-          제가 진행한 소중한 <strong>프로젝트</strong>들입니다
-        </p>
-        <img class="mac_img">
-        <div class="mac_monitor_container">
-          <div class="mac_contents_container">
-            ${monitorContentsTemplate(views[0])}
-          </div>
-          <div class="mac_arrow_container">
-            <button class="mac_monitor_arrow_left">
-              <span class="arrow arrow-left"></span>
-            </button>
-            <button class="mac_monitor_arrow_right">
-              <span class="arrow arrow-right"></span>
-            </button>
-          </div>
-          <button class="mac_monitor_search">
-            <i class="fas fa-search 5x"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-`;
 
 const triggerSectionScrollAnimate = (sectionScrollRatio) => {
   setScrollAnimate(_dom, _state.animate, sectionScrollRatio);
 };
 
 const arrowEventHandler = (event) => {
+  console.log(event.target);
   if (event.target.classList.contains("arrow")) {
     if (event.target.classList.contains("arrow-left")) {
       if (_state.curViewIdx > 0) {
@@ -144,8 +99,12 @@ const arrowEventHandler = (event) => {
       }
     }
 
-    const container = _dom.querySelector(".mac_contents_container");
-    container.innerHTML = monitorContentsTemplate(
+    const macContainer = _dom.querySelector(".mac_contents_container");
+    macContainer.innerHTML = monitorContentsTemplate(
+      _state.views[_state.curViewIdx]
+    );
+    const infoContainer = _dom.querySelector(".info_container");
+    infoContainer.innerHTML = infoContentsTemplate(
       _state.views[_state.curViewIdx]
     );
   }
@@ -181,6 +140,9 @@ const Projects = {
   _afterRender() {
     _dom.style.height = _state.scrollHeight + "px";
     _dom.querySelector(".mac_img").src = macImage;
+    _dom
+      .querySelector(".info_arrow_container")
+      .addEventListener("click", arrowEventHandler);
     _dom
       .querySelector(".mac_arrow_container")
       .addEventListener("click", arrowEventHandler);
