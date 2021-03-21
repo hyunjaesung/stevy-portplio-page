@@ -40,7 +40,7 @@ let _state = {
     {
       title: "내 집 마련",
       imgSrc:
-        "http://junggun.co.kr/wp-content/uploads/2017/03/cropped-maxresdefault.jpg",
+        "https://t1.daumcdn.net/liveboard/BoiledMovie/a42e4c64887946df8769cf9f69aabf11.JPG",
       thumbnailSrc:
         "https://lh3.googleusercontent.com/proxy/i9TNPJvO-wxVoQjWCN7f20lDiHB6JLQXYCL_nsp6ADqd9D40f-CcjmjOvMgI6JUCVCiQChHjMY7fXOvXDhjAAIO2aKRAt48AlDxcaal7UTWqJux4VqmQ9bzJhxlwYApcZw",
       summary: "나도 내 집 마련 하겠습니다!!",
@@ -55,7 +55,7 @@ let _state = {
       title: "섹시 바디",
       summary: "체지방 10% 가즈아",
       imgSrc:
-        "http://simg.donga.com/ugc/MLBPARK/Board/15/81/94/10/1581941010795.jpg",
+        "https://blog.kakaocdn.net/dn/btZo2C/btqBHUYaiLS/w4Rig8tVatvRrBrd8LvQbK/img.png",
       thumbnailSrc:
         "https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F24395936595DFC4B1EC19C",
       techStack: ["피트니스", "다이어트"],
@@ -84,7 +84,7 @@ let _state = {
       title: "포르쉐 구입",
       summary: "저의 드림카 포르쉐 입니다",
       imgSrc:
-        "http://img.danawa.com/cp_images/service/162/3256328/147605089793994031723.png",
+        "https://lh3.googleusercontent.com/proxy/_hOhswmBxEt-f_V4PZdBkhlcBmeDEsyLP6txBkxTszDhYSfaSG8ikhJv4sau8YtfjKYWbs9qrXP4fNKFxHGtDNzEFz5S3WQWMWnoStPG7XG0wPHGr3s",
       thumbnailSrc:
         "https://www.autodaily.co.kr/news/photo/201902/407643_36142_389.jpg",
       techStack: ["아내의 등짝 스매싱", "엄마의 등짝 스매싱"],
